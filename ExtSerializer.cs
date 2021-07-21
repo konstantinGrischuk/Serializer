@@ -98,13 +98,6 @@ namespace Utils
             catch (Exception er) { return er.Message; }
         }
 
-
-
-
-
-
-
-
         public static T Deserialize<T>(this T obj, string text) where T : class
         {
             var v = FromXml<T>(ref obj, text);
