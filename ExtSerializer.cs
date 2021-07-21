@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Soap;
 using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Xml.Serialization;
-.........
+
 namespace Utils
 {
 
