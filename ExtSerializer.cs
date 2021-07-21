@@ -20,7 +20,7 @@ namespace Utils
     {
         public static string Serialize(this object obj, SerializeType ST)
         {
-           switch (ST)
+            switch (ST)
             {
                 case SerializeType.JSON:
                     {
@@ -36,14 +36,14 @@ namespace Utils
                     }
                 case SerializeType.XML:
                     {
-                        return ToXml(obj);               
+                        return ToXml(obj);
                     }
                 default:
                     {
                         return ToXml(obj);
                     }
             }
-         
+
         }
 
 
@@ -105,7 +105,7 @@ namespace Utils
 
 
 
-        public static T Deserialize<T>(this T obj, string text) where T:class
+        public static T Deserialize<T>(this T obj, string text) where T : class
         {
             var v = FromXml<T>(ref obj, text);
             if (v != default(T))
@@ -117,17 +117,17 @@ namespace Utils
                     return v;
                 else
                 {
-                     v = FromJson<T>(ref obj, text);
+                    v = FromJson<T>(ref obj, text);
                     if (v != default(T))
                         return v;
                     else
                     {
-                         v = FromSOAP<T>(ref obj, text);
+                        v = FromSOAP<T>(ref obj, text);
                         if (v != default(T))
                             return v;
                         else
                         {
-                        
+
                             return default;
                         }
                     }
@@ -184,9 +184,10 @@ namespace Utils
                 obj = (T)ser.ReadObject(ms);
                 return obj;
             }
-            catch (Exception ) {
+            catch (Exception)
+            {
                 return default;
-        
+
             }
         }
 
@@ -201,9 +202,10 @@ namespace Utils
                 obj = (T)formatter.Deserialize(ms);
                 return obj;
             }
-            catch (Exception) {
+            catch (Exception)
+            {
                 return default;
-       
+
             }
         }
     }
